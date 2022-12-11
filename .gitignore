@@ -1,23 +1,394 @@
-# Compiled class file
-*.class
+//1.KOD
+import java.util.Scanner;
 
-# Log file
-*.log
+public class JavaApplication2 {
 
-# BlueJ files
-*.ctxt
+// ax^2 + bx + c = 0 şeklindeki ikinci dereceden bir denklemin kökünü bulma
+    public static void main(String[] args) { 
+        Scanner input = new Scanner (System.in);
+        double a,b,c,x1,x2,delta;
+        
+        System.out.println("a: ");
+        a= input.nextDouble();
+        
+        System.out.println("b: ");
+        b= input.nextDouble();
+        
+        System.out.println("c: ");
+        c= input.nextDouble();
+        
+        delta= b*b-4*a*c;
+         if (delta < 0){
+             System.out.println("Reel Kok Yoktur.");
+         }
+         else if (delta == 0){
+             x1= -b/(2*a);
+             System.out.println("x1=x2="+x1);
+         }
+         else {
+             x1 = (-b + Math.sqrt(delta))/(2*a);
+             x2 = (-b - Math.sqrt(delta))/(2*a);
+             
+             System.out.println("x1="+x1);
+             System.out.println("x2="+x2);
+         }
+         
+    }
+    
+}
+//ÇIKTISI:
+run:
+a: 
+6
+b: 
+7
+c: 
+10
+Reel Kok Yoktur.
+BUILD SUCCESSFUL (total time: 19 seconds)
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+----------------------------------------------------------------
+//2.KOD
+import java.util.Scanner;
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+public class Javaaplication1{
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		String sonuc;
+		double not;
+		
+		System.out.println("Sinav notunu (0-100) giriniz :");
+		not = input.nextDouble();
+		
+		sonuc = not >= 50 ? "Basarili": "Basarisiz";
+		
+		System.out.println("Sonuc :"+sonuc);
+	}
+}
+//ÇIKTISI:
+run:
+Sinav notunu (0-100) giriniz :
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+55
+Sonuc :Basarili
+BUILD SUCCESSFUL (total time: 11 seconds)
+
+---------------------------------------------------------------------------
+//3.KOD
+//FAKTÖRİYEL HESABI:
+package javaapplication3;
+
+import java.util.Scanner;
+
+
+public class JavaApplication3 {
+
+   
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner( System.in);
+        int n;
+        System.out.print("n:");
+        n = input.nextInt();
+        
+        int sonuc=1;
+        for(int i=1 ; i <= n ; i++){
+            sonuc= sonuc*i;
+        }
+        System.out.println(sonuc);
+		
+    }
+}    
+//ÇIKTISI:
+run:
+n:5
+120
+BUILD SUCCESSFUL (total time: 5 seconds)
+
+--------------------------------------------------------------------
+//4.KOD
+package javaapplication3;
+
+import java.util.Scanner;
+
+
+public class JavaApplication3 {
+
+   
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner( System.in);
+        int x;
+        System.out.print("x:");
+        x = input.nextInt();
+        
+        double sonuc;
+        sonuc =Math.sqrt(x);
+        
+       
+        double yuvarla;
+        yuvarla= Math.ceil(sonuc);
+        
+        System.out.println(yuvarla);
+                
+        
+       
+    }
+    
+}
+//ÇIKTISI:
+run:
+x:5
+3.0
+BUILD SUCCESSFUL (total time: 3 seconds)
+
+----------------------------------------------------------------
+//5.KOD
+package javaapplication3;
+
+import java.io.IOException;
+import java.util.Scanner;
+// f(x) ve g(x) fonksiyonları ,
+// x>0 ise f(x)=1/(1+lnx) ve g(x)=1/(x+lnx)
+// x<=0 ise f(x)=1/(1+x^2) ve g(x)=1/(1+x+x^2)
+
+public class JavaApplication3 {
+
+
+    @SuppressWarnings("empty-statement")
+    public static void main(String args[]) throws IOException {
+        // TODO code application logic here
+        Scanner input = new Scanner( System.in);
+        double x ,f , g;
+        
+        System.out.println("Bir sayi giriniz :");
+        x = input.nextDouble();
+        
+        if (x > 0.0 ){
+            f = 1.0/ (1.0 + Math.log(x));
+            g = 1.0/ (x + Math.log(x));
+        }
+        else {
+            f = 1.0/(1.0 + x*x);
+            g = 1.0/(1.0 + x + x*x);
+        }
+        System.out.println("\nf(x):" + f );
+        System.out.println("\ng(x):" + g );
+
+    }
+    
+}
+//ÇIKTISI:
+run:
+Bir sayi giriniz :
+5
+
+f(x):0.383224293337255
+
+g(x):0.1512987962438887
+BUILD SUCCESSFUL (total time: 6 seconds)
+
+-------------------------------------------------------------------------
+//6.KOD
+package javaapplication3;
+
+import java.io.IOException;
+import java.util.Scanner;
+//Bir satış elemanının sattığı ürün miktarına göre günlük alacağı ücret aşağıdaki gibi belirleniyor 
+//günlük satış miktarı 50 adetten az ise 15 TL tutarındaki sabit ücrete, satılan ürün başına 1TL prim eklenerek belirlenir
+//günlük 50 adet veya daha fazla ise bu durumda günlük sabit ücret 15TL alınarak ,satılan ürün başına ilk 50 adet ürün için 2TL,
+//50 adedi aşan kısım için de 3TL verilerek ücret belirlenir.
+//Bir satıcının günlük satış miktarı bilgisayara girildiğinde satıcının alacağı günlük ücreti hesaplayan java programını yazınız.
+public class JavaApplication3 {
+
+
+    @SuppressWarnings("empty-statement")
+    public static void main(String args[]) throws IOException {
+        // TODO code application logic here
+        Scanner input = new Scanner( System.in);
+        double satis , ucret ;
+        
+        System.out.println("Gunluk kac tane urun satiyorsunuz :");
+        satis= input.nextDouble();
+        
+        if(satis < 50){
+            ucret= 15.0 + satis*1.0;
+        }
+        else{
+            ucret= 15.0 + 50*2.0 + (satis - 50)*3.0;
+        }
+        System.out.println("Buna gore gunluk ucretiniz :" + ucret + "TL");
+    }
+    
+		
+}
+//ÇIKTISI:
+run:
+Gunluk kac tane urun satiyorsunuz :
+56
+Buna gore gunluk ucretiniz :133.0TL
+BUILD SUCCESSFUL (total time: 6 seconds)
+
+--------------------------------------------------------------------------------------------------------------------------
+//7.KOD
+  package javaapplication3;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class JavaApplication3 {
+
+//Fibonacci Serisi : 1 1 2 3 5 8 13 ....
+    @SuppressWarnings("empty-statement")
+    public static void main(String args[]) throws IOException {
+        // TODO code application logic here
+        Scanner scan = new Scanner( System.in);
+        System.out.println("Bir sayi giriniz(seride bulunmasini istediginiz terimden 1 fazla giriniz) :");
+        int input = scan.nextInt();
+        
+        int s1 = 0;
+        int s2 = 1;
+        int toplam;
+           
+        System.out.println(input + "Sayisinin Fibonacci serisi :");
+        
+        for( int i= 1; i <= input ; i++){
+            System.out.print( s1 + " , ");
+            
+            toplam = s1 + s2 ;
+            s1 = s2 ;
+            s2 = toplam;
+               
+        }
+        
+    }
+    
+}
+//ÇIKTISI:
+  run:
+Bir sayi giriniz(seride bulunmasini istediginiz terimden 1 fazla giriniz) :
+16
+16Sayisinin Fibonacci serisi :
+0 , 1 , 1 , 2 , 3 , 5 , 8 , 13 , 21 , 34 , 55 , 89 , 144 , 233 , 377 , 610 , BUILD SUCCESSFUL (total time: 6 seconds)    
+
+--------------------------------------------------------------------------------------------------------------------------------
+//8.KOD
+package javaapplication3;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class JavaApplication3 {
+
+//klavyeden girilen pozitif bir tam sayıya kadar olan çift tam sayıları ekrana yazdırınız. 
+    @SuppressWarnings("empty-statement")
+    public static void main(String args[]) throws IOException {
+        // TODO code application logic here
+        Scanner scan = new Scanner( System.in);
+        System.out.println("Bir sayi giriniz :");
+        int input = scan.nextInt();
+        
+        for( int i= 1; i <= input ; i++){
+           if (i%2==0){
+               System.out.println(i);
+             
+           }
+        }
+        
+    }
+    
+}
+//ÇIKTISI:
+run:
+Bir sayi giriniz :
+25
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+BUILD SUCCESSFUL (total time: 7 seconds)
+----------------------------------------------------------------------------------------------------------------
+//9.KOD
+package javaapplication3;
+
+import java.util.Scanner;
+
+public class JavaApplication3 {
+
+//klavyeden string bir değişken olarak adınızı ve soyadınızı küçük harflerle tanımlayınız 
+//ve daha sonra bu değişkenin uzunluğunu bulunuz,ek olarak bu ifadenin tüm harlerini büyük harfe çeviriniz.
+    @SuppressWarnings("empty-statement")
+    public static void main(String args[]) throws IOException {
+        // TODO code application logic here
+       String mesaj = " mutlu tuver ";
+       
+       System.out.println(mesaj+" mesajinin uzunlugu : "+ mesaj.length()+" dir.");
+       
+       System.out.println("mesajin harflerinin buyutulmus hali :"+ mesaj.toUpperCase() );
+        
+  
+    }
+    
+}
+//ÇIKTISI:
+run:
+ mutlu tuver  mesajinin uzunlugu : 13 dir.
+mesajin harflerinin buyutulmus hali : MUTLU TUVER 
+BUILD SUCCESSFUL (total time: 0 seconds)
+---------------------------------------------------------------------------------------------------------------------
+//10.KOD
+package javaapplication3;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class JavaApplication3 {
+
+//  WHİLE DÖGÜSÜ ÖRNEĞİ:
+//kulanıcı tarafından girilen pozitif bir tamsayıya kadar olan tek tam sayıların 
+//ekrana yazdırılması ve toplamlarının da ekrana yazdırılması.   
+    @SuppressWarnings("empty-statement")
+    public static void main(String args[]) throws IOException {
+        // TODO code application logic here
+        Scanner scan = new Scanner( System.in);
+        System.out.println("Bir sayi giriniz :");
+        int input = scan.nextInt();
+        int i = 1;
+        int toplam = 0;
+        while(i <= input){
+           if (i%2==1){
+               System.out.println(i);  
+               toplam += i;
+           }
+           i++;
+        }
+        System.out.println("Tek sayilarin toplami :"+toplam);
+        
+    }
+    
+}
+//ÇIKTISI:
+run:
+Bir sayi giriniz :
+16
+1
+3
+5
+7
+9
+11
+13
+15
+Tek sayilarin toplami :64
+BUILD SUCCESSFUL (total time: 8 seconds)
+
+
